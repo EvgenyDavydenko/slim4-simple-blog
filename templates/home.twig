@@ -1,0 +1,23 @@
+{% extends 'layout.twig' %}
+
+{% block body %}
+    <div class="container">
+    <div class="row justify-content-center">
+        <h3 class="mb-3 mt-3">Welcome to my Blog!</h3>
+    </div>
+
+    <div class="row justify-content-center">
+        <div class="col-md-9">
+            {% for post in posts %}
+            <div class="card mb-3">
+                <img src="{{ post.image_path }}" class="card-img-top" alt="{{ post.title|escape }}">
+                <div class="card-body">                  
+                  <a href="/{{ post.slug }}" class="">{{ post.title|escape }}</a>
+                  <p class="card-text">{{ post.description|escape }}</p>                                   
+                </div>
+            </div>
+            {% endfor %}
+        </div> 
+    </div>
+</div>
+{% endblock %}
